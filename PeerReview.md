@@ -48,3 +48,48 @@ This function retrieves the top 10 cities with the highest number of theaters fr
 
 ```top10_theaters_near(coordinates)```:
 This function retrieves the top 10 theaters that are nearest to a given set of coordinates from a MongoDB database using a geospatial query. The function first creates a 2dsphere index on the location.geo field of the theaters collection to optimize the query. Then it constructs a query using the $near operator and the given coordinates to find the theaters closest to the coordinates. Finally, it limits the results to the top 10 and prints them as a list. This function also seems well-written and efficient.
+
+## Aswat's Review
+
+### **Datbase.py**
+Used pymongo library to connect with mongodb and used subprocess library to run the mongoDb shell commands, created a db called **mydb** using the client **myclient** and created collections.
+
+
+### **comments.py**
+Imported required collections from **database.py**, created a class **Comments** <br>
+Functions in the class
+* **addComment** This adds the one document to the commentsCollection
+* **top10UserWithMaxComment** prints top 10 users with the max comment used aggregate function on **commentsCollection**
+* **top10MoviesWithMaxComment** Prints top 10 movies with max comment used aggregate function on **commentsCollection** to get 10 documets 
+* **monthWiseComment** Prints month wise comments aggregate function on **commentsCollection** to get documets and sorted by column month in ascending order
+
+### **movies.py**
+Imported required collections from **database.py**, created a class **Movies** 
+Functions in the class
+**addMovies** Inserting document to the moviesCollection
+
+**topNMoviesWith** 
+* If choice is 1 prints the top n movies with the highest IMDB rating
+* If choice is 2 prints the top n with the highest IMDB rating in a given year
+* If choice is 3 prints the top n  with highest IMDB rating with number of votes > 1000
+* If choice is 4  prints the top n with title matching a given pattern sorted by highest tomatoes ratings
+
+**topNDirector**
+* choice is 1 prints top n directors who created the maximum number of movies
+* choice is 2 prints top n directors who created the maximum number of movies in a given year
+* choice is 3 prints top n directors who created the maximum number of movies for a given genre
+
+**topNActors**
+* choice is 1 prints top n actors who starred in the maximum number of movies
+* choice is 2 prints top n actors who starred in the maximum number of movies in a given year
+* choice is 3 prints top n actors who starred in the maximum number of movies for a given genre
+
+**topNMoviesForAGenre** Prints the top n movies for each genre with the highest IMDB rating
+
+
+### **theaters.py**
+Imported required collections from **database.py**, created a class **theaters** 
+* **addMovies** This adds the one document to the theaterCollection
+* **top10CitiesMostTheaters** prints top 10 cities with the most theaters
+* **top10theatersNear** prints top 10 theaters near the given coordinates.
+
