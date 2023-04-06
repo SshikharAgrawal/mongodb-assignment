@@ -39,3 +39,12 @@ This function finds the top 10 users who made the maximum number of comments. It
 
 ```top10_movies_With_most_comment()```:
 This function finds the top 10 movies with the most comments. It uses MongoDB's aggregation pipeline to perform the required queries. The function returns the results by printing the title and number of comments for each movie. This function seems to be well-implemented and should work as expected.
+
+```month_wise_comment(year)```:
+This function retrieves the count of comments made in each month of a given year from a MongoDB database using an aggregation pipeline. The pipeline projects the year and month from the date field, filters the documents by the given year, groups the comments by month and counts the number of comments in each group. The function then prints the results as a list. Overall, the function seems well-written and efficient.
+
+```top10_cities_most_theaters()```:
+This function retrieves the top 10 cities with the highest number of theaters from a MongoDB database using an aggregation pipeline. The pipeline groups the theaters by city, counts the number of theaters in each group, sorts the groups in descending order by the count, and limits the results to the top 10. The function then prints the results as a list. This function also seems well-written and efficient.
+
+```top10_theaters_near(coordinates)```:
+This function retrieves the top 10 theaters that are nearest to a given set of coordinates from a MongoDB database using a geospatial query. The function first creates a 2dsphere index on the location.geo field of the theaters collection to optimize the query. Then it constructs a query using the $near operator and the given coordinates to find the theaters closest to the coordinates. Finally, it limits the results to the top 10 and prints them as a list. This function also seems well-written and efficient.
